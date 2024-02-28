@@ -1,0 +1,75 @@
+@startuml mascota 
+
+package Mascotas{
+class Mascota {
+-casa:Casa
+-pelota:Pelota
+}
+class Vehiculo
+
+}
+package JUEGO{
+class Minijuego
+class Futbol
+class Baquetbol
+}
+package JUGUETE{
+class Juguete
+class Pelota
+class Camioneta
+class Carro
+}
+
+package PRENDAS{
+class Ropa
+class Sueter
+class Gorra
+class Correa
+}
+
+package HOGAR{
+class Casa{
+-piano:Piano
+-habitacion:Habitacion
+}
+class Habitacion{
+-cama:Cama
+}
+class Cama{
+-cobija:Cobija
+}
+class Cobija
+class Piano
+}
+
+package Alimento{
+class Alimento
+class Carne
+class Hueso
+}
+
+Alimento "1" --o "1" Mascota
+Mascota o-- Juguete
+Carne --|> Alimento
+Pelota --|> Juguete
+Casa "1" --* "0,1" Mascota
+Casa "1" *-- "1..*" Habitacion
+Habitacion "1" *-- "1..*" Cama
+Cama "1" *-- "1" Cobija
+Vehiculo --o Mascota
+Carro --|> Vehiculo
+Ropa --o Mascota
+Sueter --|> Ropa
+Gorra --|> Ropa
+Hueso --|> Alimento
+Mascota o-- Minijuego
+Futbol --|> Minijuego
+Pelota --o Futbol
+Piano --> Juguete
+Camioneta --> Vehiculo
+Baquetbol --> Minijuego
+Piano --o Casa
+Correa "1..*" --o "1" Mascota
+
+
+@enduml
